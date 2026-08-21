@@ -66,10 +66,10 @@
 ### 🎹 Neural Symphony: 클래식 음악 생성
 
 - 프로젝트: MIDI를 이벤트 시퀀스로 표현하고 LSTM과 Transformer가 다음 이벤트를 예측하도록 학습한 생성형 딥러닝 프로젝트입니다.
-- 직접 기여: Beethoven 파트를 맡아 Decoder-only Transformer 모델 코드를 구현하고 LSTM과 비교 실험했으며 생성 결과를 제작했습니다.
+- 직접 기여: Beethoven 파트를 맡아 miniGPT 기반 Decoder-only Transformer 모델 코드를 직접 구현하고, LSTM과 비교 실험해 생성 결과를 제작했습니다.
 - 결과: 직접 LSTM 생성곡 4개와 Transformer 장기 생성곡 2개를 제작했으며, 팀은 총 33개 MIDI·11개 MP3와 53명 청취 평가로 모델별 생성 특성을 비교했습니다.
 
-`Python` `PyTorch` `LSTM` `Transformer` `MIDI`
+`Python` `PyTorch` `LSTM` `miniGPT` `Transformer` `MIDI`
 
 [상세 설명](projects/neural-symphony.md) · [원본 저장소](https://github.com/SNU-Bigdata-Fintech-AI/Classical_Music_DeepLearning)
 

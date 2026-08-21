@@ -3,8 +3,8 @@
 > 클래식 피아노 MIDI를 이벤트 언어로 변환하고 LSTM과 Transformer로 새로운 연주를 생성한 팀 프로젝트입니다.
 
 - 형태: 서울대학교 빅데이터 핀테크 AI 고급 전문가 과정 팀 프로젝트
-- 담당 범위: Beethoven 파트, Decoder-only Transformer 모델 코드 구현, LSTM 비교 실험과 생성 결과 제작
-- 기술: Python, PyTorch, LSTM, Self-Attention, Decoder-only Transformer, MIDI, Temperature Sampling
+- 담당 범위: Beethoven 파트, miniGPT 기반 Decoder-only Transformer 모델 코드 구현, LSTM 비교 실험과 생성 결과 제작
+- 기술: Python, PyTorch, LSTM, Self-Attention, miniGPT, Decoder-only Transformer, MIDI, Temperature Sampling
 - 원본 저장소: [Classical_Music_DeepLearning](https://github.com/SNU-Bigdata-Fintech-AI/Classical_Music_DeepLearning)
 
 ## 문제와 목표
@@ -13,9 +13,9 @@
 
 ## 직접 기여
 
-### Beethoven 모델 실험
+### Beethoven miniGPT 모델 구현
 
-Beethoven 곡을 담당해 이벤트 기반 MIDI 시퀀스를 학습하는 Decoder-only Transformer 모델 코드를 구현했습니다. LSTM 기준선과 동일한 작곡가 데이터에서 비교할 수 있도록 학습·생성 흐름을 정리하고 두 모델을 실험했습니다.
+Beethoven 곡을 담당해 이벤트 기반 MIDI 시퀀스를 학습하는 miniGPT 기반 Decoder-only Transformer 모델 코드를 직접 구현했습니다. LSTM 기준선과 동일한 작곡가 데이터에서 비교할 수 있도록 학습·생성 흐름을 정리하고 두 모델을 실험했습니다.
 
 ### 생성 결과 제작
 
@@ -23,7 +23,7 @@ Beethoven 곡을 담당해 이벤트 기반 MIDI 시퀀스를 학습하는 Decod
 
 ## 핵심 기술 결정
 
-아래는 팀 전체가 사용한 접근이며, 제 직접 담당 범위는 Beethoven 파트의 Transformer 모델 코드 구현, LSTM 비교 실험과 생성 결과 제작입니다.
+아래는 팀 전체가 사용한 접근이며, 제 직접 담당 범위는 Beethoven 파트의 miniGPT 기반 Transformer 모델 코드 구현, LSTM 비교 실험과 생성 결과 제작입니다.
 
 - 음높이만으로는 리듬·셈여림·화음을 표현하기 어려워 `TIME_SHIFT`, `VELOCITY`, `NOTE_ON`, `NOTE_OFF` 이벤트로 MIDI를 토큰화했습니다.
 - 순환 구조와 Attention 기반 구조의 시퀀스 학습 특성을 비교하기 위해 LSTM, LSTM과 Self-Attention의 결합, Decoder-only Transformer를 실험했습니다.
@@ -42,6 +42,7 @@ Beethoven 곡을 담당해 이벤트 기반 MIDI 시퀀스를 학습하는 Decod
 
 ## 관련 자료
 
+- [Beethoven miniGPT 실험 노트북](https://github.com/SNU-Bigdata-Fintech-AI/Classical_Music_DeepLearning/blob/main/model/transformer/transformer_beethoven.ipynb)
 - [생성 결과](https://github.com/SNU-Bigdata-Fintech-AI/Classical_Music_DeepLearning/tree/main/outputs)
 
 [포트폴리오로 돌아가기](../README.md)
