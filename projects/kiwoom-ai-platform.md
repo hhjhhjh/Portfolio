@@ -30,15 +30,7 @@
 
 ## 공개 가능한 서비스 구성
 
-```mermaid
-flowchart LR
-    U[업무 사용자] --> W[React UI · API]
-    W --> D[리스크 · STT · 컴플라이언스 등<br/>도메인 서비스]
-    D --> C[공통 API · 파일 서비스 · Python SDK]
-    C --> S[(MongoDB · Redis · 파일 저장소)]
-    D --> A[외부 AI · 데이터 API]
-    D --> V[근거 확인 · 사용자 검토 · 최종 저장]
-```
+![공통 플랫폼 인프라 시스템 구조](../assets/kiwoom-ai-platform/featured/platform-infrastructure.png)
 
 도메인 서비스는 업무별 판단과 생성 흐름을 담당하고, 파일·외부 API·저장과 오류 처리는 공통 계층으로 분리했습니다. 실제 사내 시스템명과 연결 정보는 공개 범위에서 제외했습니다.
 
@@ -61,6 +53,8 @@ flowchart LR
 - 단위·통합·회귀 테스트를 추가해 데이터 저장과 문서 근거 처리의 변경을 검증했습니다.
 - 프롬프트와 분류 규칙을 문서형 DB로 분리해 운영 담당자가 코드 배포 없이 수정할 수 있게 했고, 수일 걸리던 작성 업무를 하루 이내로 단축했습니다.
 
+![리스크 관리 에이전트 시스템 구조](../assets/kiwoom-ai-platform/featured/risk-management-agent.png)
+
 ### 음성 전사와 LLM 보정 서비스
 
 - 1시간 이상의 회의 녹음을 전사하고 회의록으로 만드는 파이프라인을 설계하고, 전사·보정 서비스와 회의록 생성 서비스를 조정하는 오케스트레이터를 구현했습니다.
@@ -68,6 +62,8 @@ flowchart LR
 - 동기 요청으로 시작한 기능을 비동기 작업과 상태 조회 구조로 확장해 긴 작업이 웹 요청을 점유하지 않도록 했습니다.
 - 세그먼트 개수·시간·화자는 코드로 확정하고 LLM에는 전사 결과 비교와 텍스트 보정만 맡겼습니다. 긴 출력이 잘리는 문제는 수정 구간만 반환받아 원본에 반영하는 방식으로 해결했습니다.
 - 전사 결과 저장과 파일 관리 서비스 연동을 포함해 1시간 이상 분량의 회의 녹음을 10분 이내에 전사할 수 있도록 자동화했습니다.
+
+![대체투자 회의록 생성 에이전트 시스템 구조](../assets/kiwoom-ai-platform/featured/meeting-minutes-agent.png)
 
 ### 공통 API·파일 처리 인프라
 
@@ -82,6 +78,8 @@ flowchart LR
 - 금융투자협회 심사 사례를 분석해 카테고리와 체크리스트로 구조화하고, 각 항목을 관련 규정과 위반 유형에 연결했습니다.
 - 병렬 검토와 오탐 필터링을 포함한 다단계 파이프라인을 구성하고 현업 피드백을 반영해 의미 기반 판단 규칙을 보완했습니다.
 - LLM 호출과 결정적 판단 로직을 분리하고 회귀 테스트를 적용했으며, 광고 파일 1건을 3분 이내에 심사할 수 있도록 자동화했습니다.
+
+![컴플라이언스 에이전트 시스템 구조](../assets/kiwoom-ai-platform/featured/compliance-agent.png)
 
 ### 디지털마케팅 데이터 적재 자동화
 
@@ -122,6 +120,37 @@ flowchart LR
 - LLM 기능의 재현성과 장애 추적을 위해 프롬프트 버전, 작업 상태, 파일 수명주기와 데이터 계보를 연결해 관리할 필요가 있습니다.
 - 공통 SDK가 여러 도메인으로 확장될수록 버전 호환성과 오류 계약을 자동으로 검증하는 계약 테스트가 중요합니다.
 - 금융 생성형 AI의 운영 범위를 넓히려면 사용자 검토·확정 이력과 생성 근거를 함께 남기는 감사 추적 체계를 보강해야 합니다.
+
+## 기타 구현 다이어그램
+
+<details>
+<summary>챗봇·디지털마케팅·파싱·ESG·개발자 도구·파일 캐시 구조 보기</summary>
+
+### 챗봇
+
+![챗봇 시스템 구조](../assets/kiwoom-ai-platform/appendix/chatbot.png)
+
+### 디지털마케팅 에이전트
+
+![디지털마케팅 에이전트 시스템 구조](../assets/kiwoom-ai-platform/appendix/digital-marketing-agent.png)
+
+### 파싱 에이전트
+
+![파싱 에이전트 시스템 구조](../assets/kiwoom-ai-platform/appendix/parsing-agent.png)
+
+### ESG 에이전트
+
+![ESG 에이전트 시스템 구조](../assets/kiwoom-ai-platform/appendix/esg-agent.png)
+
+### 개발자 도구 플러그인
+
+![개발자 도구 플러그인 시스템 구조](../assets/kiwoom-ai-platform/appendix/developer-tools-plugin.png)
+
+### 파일 캐시 중복 점검 자동화
+
+![파일 캐시 중복 점검 자동화 시스템 구조](../assets/kiwoom-ai-platform/appendix/file-cache-automation.png)
+
+</details>
 
 ## 공개 범위
 
