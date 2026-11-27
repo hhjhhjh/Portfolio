@@ -87,15 +87,15 @@
 
 모델과 분석 결과를 웹 서비스, 데이터 파이프라인과 실제 사용 흐름으로 연결한 프로젝트입니다.
 
-### 🧴 피그널: 피부 트러블 위치 분석 서비스
+### 🧴 acne-care: 피부 사진 기록·비교 웹앱
 
-- 프로젝트: 5인 팀으로 얼굴 이미지에서 피부 트러블을 탐지하고 얼굴 부위별 정보를 제공하는 웹 서비스를 개발했습니다.
-- 직접 기여: YOLOv8 모델 학습·모델링과 추론 후처리, Flask 백엔드, DB 저장과 결과·기록 조회 기능을 담당했습니다.
-- 결과: 팀은 이미지 업로드부터 분석 결과 조회까지 이어지는 프로토타입을 구현했습니다.
+- 프로젝트: 5인 팀 프로젝트 acne-CV를 바탕으로 혼자 후속 개발한 바이오헬스 캡스톤 프로젝트입니다. 사진 한 장의 분석을 촬영일별 기록 관리, 여러 기록 비교와 리포트까지 확장했습니다.
+- 직접 기여: 데이터 검사·라벨 보완, YOLO11n 학습·비교 실험, FastAPI·SQLite 백엔드와 PC·휴대폰용 웹 화면 전체를 개발했습니다.
+- 결과: acne-care의 외부 데이터 추가 실험에서 두 YOLO11n 모델을 동일 Test 354장으로 비교해 F1을 0.422에서 0.536으로 높이고, 사진당 탐지 개수의 평균 절대 오차를 2.282개에서 1.718개로 줄였습니다.
 
-`Python` `YOLO` `MediaPipe` `Flask` `SQLite`
+`Python` `PyTorch` `YOLO11n` `FastAPI` `SQLite` `JavaScript`
 
-[상세 설명](projects/acne-cv.md) · [원본 저장소](https://github.com/NIS-co-create/acne-CV)
+[상세 설명](projects/acne-care.md) · [원본 저장소](https://github.com/hhjhhjh/acne-care) · [시연 영상](https://youtube.com/shorts/VC3mpvTDcXo)
 
 ### 🔥 한국 산불 진압시간 예측
 
